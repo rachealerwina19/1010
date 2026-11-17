@@ -1,0 +1,1537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Her Story | The Gallery</title>
+
+<style>
+
+/* GENERAL DESIGN */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #543C46;
+}
+
+h1, h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.small-title {
+    color: #A96F80;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+}
+
+/* NAVIGATION BAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: white;
+    border-bottom: 1px solid #F0E2E7;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #A96F80;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #543C46;
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 7px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #A96F80;
+    border-bottom: 2px solid #A96F80;
+}
+
+/* BACK TO HOME */
+
+.back-home {
+    display: inline-block;
+    margin: 25px 8% 0;
+    color: #A96F80;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.back-home:hover {
+    text-decoration: underline;
+}
+
+/* HERO INTRODUCTION */
+
+.gallery-hero {
+    background-color: #FBF4F6;
+    text-align: center;
+    padding: 65px 10% 75px;
+}
+
+.gallery-hero h1 {
+    font-size: 54px;
+    margin: 20px 0;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: auto;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #765D67;
+}
+
+.pink-line {
+    width: 55px;
+    height: 2px;
+    background-color: #DAB7C1;
+    margin: 25px auto;
+}
+
+/* THREE-PHOTO COLLAGE */
+
+.hero-collage {
+    position: relative;
+    width: 620px;
+    max-width: 100%;
+    height: 340px;
+    margin: 45px auto 30px;
+}
+
+.collage-photo {
+    position: absolute;
+    width: 230px;
+    height: 285px;
+    object-fit: cover;
+    background-color: #F2E2E7;
+    border: 8px solid white;
+    border-bottom: 28px solid white;
+    border-radius: 4px;
+    box-shadow: 0 12px 30px rgba(84,60,70,0.15);
+    transition: 0.3s;
+}
+
+.collage-left {
+    left: 6%;
+    top: 35px;
+    transform: rotate(-10deg);
+    z-index: 1;
+}
+
+.collage-middle {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.collage-right {
+    right: 6%;
+    top: 35px;
+    transform: rotate(10deg);
+    z-index: 2;
+}
+
+.collage-left:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 4;
+}
+
+.collage-middle:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.collage-right:hover {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 4;
+}
+
+/* GALLERY STATISTICS */
+
+.gallery-stats {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    flex-wrap: wrap;
+    margin: 35px auto;
+}
+
+.stat-item h2 {
+    font-size: 32px;
+    color: #A96F80;
+    margin: 0 0 8px;
+}
+
+.stat-item p {
+    color: #765D67;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin: 0;
+}
+
+/* INTERACTIVE BUTTONS */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.explore-btn,
+.click-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.explore-btn {
+    background-color: #A96F80;
+    color: white;
+    border: 2px solid #A96F80;
+}
+
+.explore-btn:hover {
+    background-color: #8F5869;
+}
+
+.click-btn {
+    background-color: white;
+    color: #A96F80;
+    border: 2px solid #A96F80;
+}
+
+.click-btn:hover {
+    background-color: #F4E2E8;
+}
+
+/* GALLERY SECTION */
+
+.media-section {
+    padding: 70px 10% 90px;
+    scroll-margin-top: 100px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.tab-btn {
+    background-color: white;
+    color: #A96F80;
+    border: 1px solid #E8C9D1;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background-color: #A96F80;
+    color: white;
+    border-color: #A96F80;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.media-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.media-heading h2 {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.media-heading p {
+    color: #765D67;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* PHOTO GRID */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.photo-card {
+    background-color: #FFF9FA;
+    border: 1px solid #F0E2E7;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.photo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(169,111,128,0.13);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.photo-title {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.photo-title h3 {
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #543C46;
+    margin: 0;
+}
+
+/* PAGINATION */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 45px;
+}
+
+.page-btn {
+    min-width: 42px;
+    height: 42px;
+    padding: 0 14px;
+    background-color: white;
+    color: #A96F80;
+    border: 1px solid #E8C9D1;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.page-btn:hover,
+.page-btn.active {
+    background-color: #A96F80;
+    color: white;
+    border-color: #A96F80;
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-info {
+    text-align: center;
+    color: #765D67;
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+/* PHOTO POP-UP */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(35,26,31,0.94);
+    padding: 35px 20px 55px;
+    text-align: center;
+}
+
+.modal-back {
+    display: block;
+    margin: 0 auto 25px;
+    background-color: #A96F80;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-back:hover {
+    background-color: #8F5869;
+}
+
+.modal-image {
+    display: block;
+    max-width: 90%;
+    max-height: 65vh;
+    width: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 5px solid white;
+}
+
+.modal-title {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 25px 0 12px;
+}
+
+.modal-description {
+    max-width: 550px;
+    margin: 0 auto;
+    color: #E8D7DE;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.close {
+    position: fixed;
+    top: 18px;
+    right: 30px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+/* VIDEO SECTION */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.video-card {
+    background-color: #FFF9FA;
+    border: 1px solid #F0E2E7;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #2B2227;
+}
+
+.video-caption {
+    padding: 25px;
+}
+
+.video-caption h3 {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 0 0 12px;
+}
+
+.video-caption p {
+    color: #765D67;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* AUDIO SECTION */
+
+.audio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.audio-card {
+    background-color: #FFF9FA;
+    border: 1px solid #F0E2E7;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.audio-icon {
+    display: inline-block;
+    background-color: #F4E2E8;
+    color: #A96F80;
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.audio-card h3 {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.audio-card p {
+    color: #765D67;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.audio-card audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* ENDING */
+
+.gallery-ending {
+    text-align: center;
+    padding: 70px 10%;
+    background-color: #FBF4F6;
+}
+
+.gallery-ending h2 {
+    font-size: 32px;
+}
+
+.gallery-ending p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #765D67;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+    color: #765D67;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    color: #A96F80;
+}
+
+/* BACK TO TOP */
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 60;
+    width: 45px;
+    height: 45px;
+    background-color: #A96F80;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 850px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .gallery-hero h1 {
+        font-size: 40px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-grid,
+    .audio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .gallery-hero {
+        padding: 55px 6%;
+    }
+
+    .gallery-hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-collage {
+        height: 225px;
+    }
+
+    .collage-photo {
+        width: 39%;
+        height: 195px;
+        border-width: 5px;
+        border-bottom-width: 20px;
+    }
+
+    .collage-left {
+        left: 2%;
+        top: 20px;
+    }
+
+    .collage-right {
+        right: 2%;
+        top: 20px;
+    }
+
+    .gallery-stats {
+        gap: 22px;
+    }
+
+    .stat-item h2 {
+        font-size: 25px;
+    }
+
+    .stat-item p {
+        font-size: 9px;
+    }
+
+    .media-section {
+        padding: 50px 7%;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<nav class="navbar">
+
+    <div class="logo">Her Story.</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="background.html">Background</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="gallery.html" class="active">The Gallery</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+</nav>
+
+<!-- BACK TO HOME BUTTON -->
+
+<a href="home.html" class="back-home">
+    &#8592; Back to Home
+</a>
+
+<!-- INTRODUCTION -->
+
+<section class="gallery-hero">
+
+    <div class="small-title">
+        CHAPTER FOUR · THE GALLERY
+    </div>
+
+    <h1>Moments in Motion.</h1>
+
+    <p class="hero-description">
+        A collection of little memories that tell
+        the beautiful story of who she is.
+        Every photograph, video, and sound holds
+        a special moment worth remembering.
+    </p>
+
+    <div class="pink-line"></div>
+
+    <!-- THREE-PHOTO COLLAGE -->
+
+    <div class="hero-collage">
+
+        <img src="collage1.jpg"
+             alt="ndndijd"
+             class="collage-photo collage-left">
+
+        <img src="collage2.jpg"
+             alt="jsjsisd"
+             class="collage-photo collage-middle">
+
+        <img src="collage3.jpg"
+             alt="Abdusjdid"
+             class="collage-photo collage-right">
+
+    </div>
+
+    <!-- GALLERY STATISTICS -->
+
+    <div class="gallery-stats">
+
+        <div class="stat-item">
+            <h2>18</h2>
+            <p>CAPTURED MOMENTS</p>
+        </div>
+
+        <div class="stat-item">
+            <h2>05</h2>
+            <p>LITTLE FILMS</p>
+        </div>
+
+        <div class="stat-item">
+            <h2>03</h2>
+            <p>AUDIO MEMORIES</p>
+        </div>
+
+    </div>
+
+    <!-- INTERACTIVE BUTTONS -->
+
+    <div class="hero-buttons">
+
+        <button class="click-btn" onclick="showMessage()">
+            Click Me! &#9825;
+        </button>
+
+        <a href="#explore" class="explore-btn">
+            Explore Her Memories &#8595;
+        </a>
+
+    </div>
+
+</section>
+
+<!-- GALLERY SECTION -->
+
+<section class="media-section" id="explore">
+
+    <!-- CATEGORY BUTTONS -->
+
+    <div class="tab-buttons">
+
+        <button class="tab-btn active"
+                onclick="openTab('photos', this)">
+            &#128247; Captured Moments
+        </button>
+
+        <button class="tab-btn"
+                onclick="openTab('videos', this)">
+            &#127909; In Motion
+        </button>
+
+        <button class="tab-btn"
+                onclick="openTab('audio', this)">
+            &#127925; Little Echoes
+        </button>
+
+    </div>
+
+    <!-- PHOTO SECTION -->
+
+    <div id="photos" class="tab-content active">
+
+        <div class="media-heading">
+
+            <div class="small-title">
+                CAPTURED MOMENTS
+            </div>
+
+            <h2>Through the Lens</h2>
+
+            <p>
+                Little snapshots of the moments that matter.
+            </p>
+
+        </div>
+
+        <div class="photo-grid" id="photoGrid"></div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button class="page-btn"
+                    id="prevBtn"
+                    onclick="changePage(-1)">
+                &#10094; Previous
+            </button>
+
+            <button class="page-btn active"
+                    onclick="goToPage(1)">
+                1
+            </button>
+
+            <button class="page-btn"
+                    onclick="goToPage(2)">
+                2
+            </button>
+
+            <button class="page-btn"
+                    onclick="goToPage(3)">
+                3
+            </button>
+
+            <button class="page-btn"
+                    id="nextBtn"
+                    onclick="changePage(1)">
+                Next &#10095;
+            </button>
+
+        </div>
+
+        <div class="page-info" id="pageInfo"></div>
+
+    </div>
+
+    <!-- VIDEO SECTION: 5 VIDEOS -->
+
+    <div id="videos" class="tab-content">
+
+        <div class="media-heading">
+
+            <div class="small-title">
+                MEMORIES IN MOTION
+            </div>
+
+            <h2>Lis</h2>
+
+            <p>
+                Rees.
+            </p>
+
+        </div>
+
+        <div class="video-grid">
+
+            <!-- VIDEO 1 -->
+
+            <div class="video-card">
+
+                <video controls preload="metadata">
+                    <source src="video1.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+
+                <div class="video-caption">
+                    <h3>A Day to Remember</h3>
+                    <p>
+                        A collection of meaningful moments
+                        and unforgettable experiences.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 2 -->
+
+            <div class="video-card">
+
+                <video controls preload="metadata">
+                    <source src="video2.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+
+                <div class="video-caption">
+                    <h3>Life in Little Clips</h3>
+                    <p>
+                        A glimpse of the everyday moments
+                        that make her story special.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 3 -->
+
+            <div class="video-card">
+
+                <video controls preload="metadata">
+                    <source src="video3.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+
+                <div class="video-caption">
+                    <h3>Beautiful Adventures</h3>
+                    <p>
+                        Little adventures, new experiences,
+                        and memories made along the way.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 4 -->
+
+            <div class="video-card">
+
+                <video controls preload="metadata">
+                    <source src="video4.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+
+                <div class="video-caption">
+                    <h3>Unforgettable Moments</h3>
+                    <p>
+                        A collection of special memories
+                        filled with happiness and laughter.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- VIDEO 5 -->
+
+            <div class="video-card">
+
+                <video controls preload="metadata">
+                    <source src="video5.mp4" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+
+                <div class="video-caption">
+                    <h3>To Be Continued</h3>
+                    <p>
+                        Every moment is part of a beautiful
+                        story that continues to unfold.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- AUDIO SECTION: 3 RECORDINGS -->
+
+    <div id="audio" class="tab-content">
+
+        <div class="media-heading">
+
+            <div class="small-title">
+                SOUNDS OF HER STORY
+            </div>
+
+            <h2>Memories You Can Hear</h2>
+
+            <p>
+                Sometimes, the most meaningful moments are heard.
+            </p>
+
+        </div>
+
+        <div class="audio-grid">
+
+            <!-- AUDIO 1 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">&#127908;</div>
+
+                <h3>A Little Voice Note</h3>
+
+                <p>
+                    A personal message that captures
+                    a small part of her personality.
+                </p>
+
+                <audio controls>
+                    <source src="audio1.mp3" type="audio/mpeg">
+                    Your browser does not support HTML audio.
+                </audio>
+
+            </div>
+
+            <!-- AUDIO 2 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">&#127925;</div>
+
+                <h3>A Memory in Sound</h3>
+
+                <p>
+                    A meaningful recording that brings
+                    back a special moment.
+                </p>
+
+                <audio controls>
+                    <source src="audio2.mp3" type="audio/mpeg">
+                    Your browser does not support HTML audio.
+                </audio>
+
+            </div>
+
+            <!-- AUDIO 3 -->
+
+            <div class="audio-card">
+
+                <div class="audio-icon">&#128150;</div>
+
+                <h3>Words from the Heart</h3>
+
+                <p>
+                    A little message filled with
+                    appreciation, memories, and friendship.
+                </p>
+
+                <audio controls>
+                    <source src="audio3.mp3" type="audio/mpeg">
+                    Your browser does not support HTML audio.
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PHOTO POP-UP -->
+
+<div id="imageModal"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modalTitle">
+
+    <button class="close"
+            onclick="closeImage()"
+            aria-label="Close photo">
+        &times;
+    </button>
+
+    <button class="modal-back"
+            onclick="closeImage()">
+        &#8592; Back to Gallery
+    </button>
+
+    <img class="modal-image"
+         id="largeImage"
+         alt="Enlarged photograph">
+
+    <h2 class="modal-title" id="modalTitle"></h2>
+
+    <p class="modal-description"
+       id="modalDescription"></p>
+
+</div>
+
+<!-- ENDING SECTION -->
+
+<section class="gallery-ending">
+
+    <div class="small-title">
+        THE BEAUTY OF MEMORIES
+    </div>
+
+    <h2>Some Moments Stay With Us.</h2>
+
+    <p>
+        "The best memories aren't always planned.
+        Sometimes, they're simply the moments we share
+        with the people who matter."
+    </p>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">Her Story.</div>
+
+    <p>
+        Made with love, for a story worth telling. &#9825;
+    </p>
+
+    <p id="currentDate"></p>
+
+    <p>
+        &copy; <span id="year"></span>
+        Her Story. All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn"
+        onclick="topFunction()"
+        title="Go to top">
+    &#8593;
+</button>
+
+<script>
+
+/* CLICK ME POP-UP MESSAGE */
+
+function showMessage() {
+
+    alert("Every picture holds a memory, and every memory tells a beautiful story! ♡");
+
+}
+
+/* ALL 18 PHOTOS */
+
+const photos = [
+
+    {
+        image: "gallery1.jpg",
+        title: "hshbswww",
+        description: "kwioww."
+    },
+
+    {
+        image: "gallery2.jpg",
+        title: "masjow",
+        description: "jszjsjjs."
+    },
+
+    {
+        image: "gallery3.jpg",
+        title: "jqiq",
+        description: "skkss."
+    },
+
+    {
+        image: "gallery4.jpg",
+        title: "sbiaas",
+        description: "A ."
+    },
+
+    {
+        image: "gallery5.jpg",
+        title: "M",
+        description: "C."
+    },
+
+    {
+        image: "gallery6.jpg",
+        title: "F",
+        description: "O."
+    },
+
+    {
+        image: "gallery7.jpg",
+        title: "G",
+        description: "A b."
+    },
+
+    {
+        image: "gallery8.jpg",
+        title: "A Hy",
+        description: "A d."
+    },
+
+    {
+        image: "gallery9.jpg",
+        title: "Just B",
+        description: "A."
+    },
+
+    {
+        image: "gallery10.jpg",
+        title: "P",
+        description: "Ev."
+    },
+
+    {
+        image: "gallery11.jpg",
+        title: "Ss",
+        description: "Th."
+    },
+
+    {
+        image: "gallery12.jpg",
+        title: "Ths",
+        description: "Le."
+    },
+
+    {
+        image: "gallery13.jpg",
+        title: "A",
+        description: "Diy."
+    },
+
+    {
+        image: "gallery14.jpg",
+        title: "Maes",
+        description: "Cl."
+    },
+
+    {
+        image: "gallery15.jpg",
+        title: "A e",
+        description: "So."
+    },
+
+    {
+        image: "gallery16.jpg",
+        title: "Oy",
+        description: "A sies."
+    },
+
+    {
+        image: "gallery17.jpg",
+        title: "ly",
+        description: "Ay."
+    },
+
+    {
+        image: "gallery18.jpg",
+        title: "Ted",
+        description: "Evd."
+    }
+
+];
+
+/* PHOTO PAGINATION */
+
+let currentPage = 1;
+
+const photosPerPage = 6;
+
+const totalPages = Math.ceil(photos.length / photosPerPage);
+
+function displayPhotos() {
+
+    let photoGrid = document.getElementById("photoGrid");
+
+    photoGrid.innerHTML = "";
+
+    let start = (currentPage - 1) * photosPerPage;
+
+    let end = start + photosPerPage;
+
+    let currentPhotos = photos.slice(start, end);
+
+    currentPhotos.forEach(function(photo, index) {
+
+        let photoNumber = start + index + 1;
+
+        let card = document.createElement("div");
+        card.className = "photo-card";
+
+        let image = document.createElement("img");
+
+        image.src = photo.image;
+        image.alt = photo.title;
+        image.tabIndex = 0;
+
+        image.setAttribute("role", "button");
+
+        image.setAttribute(
+            "aria-label",
+            "Enlarge " + photo.title
+        );
+
+        image.onclick = function() {
+            openImage(photoNumber - 1);
+        };
+
+        image.onkeydown = function(event) {
+
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openImage(photoNumber - 1);
+            }
+
+        };
+
+        let titleBox = document.createElement("div");
+        titleBox.className = "photo-title";
+
+        let title = document.createElement("h3");
+        title.textContent = photo.title;
+
+        /* NO MOMENT NUMBERS */
+
+        titleBox.appendChild(title);
+
+        card.appendChild(image);
+        card.appendChild(titleBox);
+
+        photoGrid.appendChild(card);
+
+    });
+
+    updatePagination();
+
+}
+
+/* UPDATE PAGINATION */
+
+function updatePagination() {
+
+    let buttons =
+        document.querySelectorAll(".pagination .page-btn");
+
+    buttons.forEach(function(button) {
+        button.classList.remove("active");
+    });
+
+    buttons[currentPage].classList.add("active");
+
+    document.getElementById("prevBtn").disabled =
+        currentPage === 1;
+
+    document.getElementById("nextBtn").disabled =
+        currentPage === totalPages;
+
+    document.getElementById("pageInfo").textContent =
+        "Page " + currentPage + " of " + totalPages;
+
+}
+
+/* GO TO PHOTO PAGE */
+
+function goToPage(page) {
+
+    if (page >= 1 && page <= totalPages) {
+
+        currentPage = page;
+
+        displayPhotos();
+
+        document.getElementById("photos").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+/* PREVIOUS AND NEXT */
+
+function changePage(direction) {
+    goToPage(currentPage + direction);
+}
+
+/* PHOTO POP-UP */
+
+let lastFocusedPhoto = null;
+
+function openImage(index) {
+
+    let photo = photos[index];
+
+    lastFocusedPhoto = document.activeElement;
+
+    document.getElementById("largeImage").src =
+        photo.image;
+
+    document.getElementById("largeImage").alt =
+        photo.title;
+
+    document.getElementById("modalTitle").textContent =
+        photo.title;
+
+    document.getElementById("modalDescription").textContent =
+        photo.description;
+
+    document.getElementById("imageModal").style.display =
+        "block";
+
+    document.body.style.overflow = "hidden";
+
+    document.querySelector(".modal-back").focus();
+
+}
+
+/* BACK TO GALLERY */
+
+function closeImage() {
+
+    document.getElementById("imageModal").style.display =
+        "none";
+
+    document.body.style.overflow = "";
+
+    if (lastFocusedPhoto && lastFocusedPhoto.focus) {
+        lastFocusedPhoto.focus();
+    }
+
+}
+
+/* CLOSE BY CLICKING OUTSIDE */
+
+window.addEventListener("click", function(event) {
+
+    let modal = document.getElementById("imageModal");
+
+    if (event.target === modal) {
+        closeImage();
+    }
+
+});
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape" &&
+        document.getElementById("imageModal").style.display === "block") {
+
+        closeImage();
+    }
+
+});
+
+/* SWITCH BETWEEN PHOTO, VIDEO AND AUDIO */
+
+function openTab(tabName, button) {
+
+    let tabs =
+        document.getElementsByClassName("tab-content");
+
+    let buttons =
+        document.getElementsByClassName("tab-btn");
+
+    let media =
+        document.querySelectorAll("video, audio");
+
+    media.forEach(function(item) {
+        item.pause();
+    });
+
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+    }
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+
+    document.getElementById(tabName).classList.add("active");
+
+    button.classList.add("active");
+
+}
+
+/* DATE AND YEAR */
+
+document.getElementById("currentDate").textContent =
+    new Date().toDateString();
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* BACK TO TOP */
+
+let topButton = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function() {
+
+    if (document.documentElement.scrollTop > 200 ||
+        document.body.scrollTop > 200) {
+
+        topButton.style.display = "block";
+
+    } else {
+
+        topButton.style.display = "none";
+
+    }
+
+});
+
+function topFunction() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+/* SHOW FIRST SIX PHOTOS */
+
+displayPhotos();
+
+</script>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Her Story | Contact Us</title>
+
+<style>
+
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #543C46;
+    background-color: white;
+}
+
+h1, h2, h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.small-title {
+    color: #A96F80;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: white;
+    border-bottom: 1px solid #F0E2E7;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #A96F80;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #543C46;
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 7px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #A96F80;
+    border-bottom: 2px solid #A96F80;
+}
+
+/* BACK BUTTON */
+
+.back-button {
+    display: inline-block;
+    margin: 25px 8%;
+    padding: 0;
+    background: none;
+    border: none;
+    color: #A96F80;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* HERO */
+
+.hero {
+    background-color: #FBF4F6;
+    text-align: center;
+    padding: 75px 10% 85px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin: 20px 0;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #765D67;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.pink-line {
+    width: 55px;
+    height: 2px;
+    background-color: #DAB7C1;
+    margin: 28px auto;
+}
+
+.hero-link {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #A96F80;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.hero-link:hover {
+    background-color: #8F5869;
+}
+
+/* SECTION */
+
+.section {
+    padding: 80px 10%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.section-heading p {
+    color: #765D67;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* CONTACT CARDS */
+
+.contact-grid {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.contact-card {
+    background-color: #FFF9FA;
+    border: 1px solid #F0E2E7;
+    border-radius: 14px;
+    padding: 40px 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(169,111,128,0.12);
+}
+
+.contact-icon {
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    border-radius: 50%;
+    background-color: #F4E2E8;
+    color: #A96F80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.contact-card h3 {
+    font-size: 24px;
+    margin: 20px 0 10px;
+}
+
+.contact-card p {
+    color: #765D67;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #A96F80;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* WALL OF WISHES */
+
+.wishes-section {
+    background-color: #FBF4F6;
+    padding: 85px 10%;
+    scroll-margin-top: 100px;
+}
+
+.wish-form {
+    max-width: 750px;
+    margin: auto;
+    padding: 45px;
+    background-color: white;
+    border: 1px solid #F0E2E7;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(169,111,128,0.08);
+}
+
+.wish-form h2 {
+    text-align: center;
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+.wish-form > p {
+    text-align: center;
+    color: #765D67;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #543C46;
+    background-color: #FFFDFE;
+    border: 1px solid #E8C9D1;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #A96F80;
+}
+
+.form-group textarea {
+    height: 145px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #A96F80;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #8F5869;
+}
+
+.form-note {
+    text-align: center;
+    color: #987C86;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-top: 18px;
+}
+
+/* WISH CARDS */
+
+.wishes-wall {
+    max-width: 900px;
+    margin: 65px auto 0;
+}
+
+.wishes-wall h2 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.wishes-wall > p {
+    text-align: center;
+    color: #765D67;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.wish-card {
+    background-color: white;
+    border: 1px solid #F0E2E7;
+    border-radius: 12px;
+    padding: 28px;
+    overflow-wrap: anywhere;
+}
+
+.wish-heart {
+    color: #A96F80;
+    font-size: 26px;
+}
+
+.wish-message {
+    color: #543C46;
+    font-size: 15px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+.wish-author {
+    color: #A96F80;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.empty-message {
+    color: #987C86;
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* POP-UP */
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(35,26,31,0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-box {
+    width: 100%;
+    max-width: 420px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 45px 30px;
+    text-align: center;
+}
+
+.popup-heart {
+    font-size: 45px;
+    color: #A96F80;
+}
+
+.popup-box h2 {
+    font-size: 30px;
+}
+
+.popup-box p {
+    color: #765D67;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.popup-btn {
+    margin-top: 20px;
+    background-color: #A96F80;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 30px;
+    cursor: pointer;
+}
+
+/* CLOSING SECTION */
+
+.closing {
+    padding: 85px 10%;
+    text-align: center;
+}
+
+.closing h2 {
+    font-size: 35px;
+}
+
+.closing p {
+    max-width: 650px;
+    margin: 15px auto;
+    color: #765D67;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.creator {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+    background-color: #FBF4F6;
+    border-radius: 30px;
+    color: #A96F80;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 45px 20px;
+    background-color: #FBF4F6;
+    text-align: center;
+    color: #765D67;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    color: #A96F80;
+}
+
+/* BACK TO TOP */
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 60;
+    width: 45px;
+    height: 45px;
+    background-color: #A96F80;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .hero {
+        padding: 65px 7%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .section,
+    .wishes-section {
+        padding: 60px 7%;
+    }
+
+    .contact-grid,
+    .wishes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wish-form {
+        padding: 30px 22px;
+    }
+
+    .section-heading h2 {
+        font-size: 31px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav class="navbar">
+
+    <div class="logo">Her Story.</div>
+
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="background.html">Background</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="gallery.html">The Gallery</a>
+        <a href="contact.html" class="active">Contact Us</a>
+    </div>
+
+</nav>
+
+<!-- BACK TO PREVIOUS PAGE -->
+
+<button class="back-button" onclick="goBack()">
+    &#8592; Back
+</button>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="small-title">
+        CHAPTER FIVE · CONTACT
+    </div>
+
+    <h1>A Little Hello Goes a Long Way.</h1>
+
+    <p>
+        Every meaningful connection begins with a simple hello.
+        Whether you want to get to know her better,
+        share a kind word, or leave a thoughtful wish,
+        this is the perfect place to start.
+    </p>
+
+    <div class="pink-line"></div>
+
+    <a href="#wallOfWishes" class="hero-link">
+        Leave Her a Wish &#9825;
+    </a>
+
+</section>
+
+<!-- CONTACT DETAILS -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <div class="small-title">
+            01 · STAY CONNECTED
+        </div>
+
+        <h2>Get in Touch With Her</h2>
+
+        <p>
+            A few simple ways to stay connected
+            and learn more about her.
+        </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+        <!-- EMAIL -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                &#9993;
+            </div>
+
+            <h3>Send an Email</h3>
+
+            <p>
+                Have something to share?
+                Reach out through email.
+            </p>
+
+            <!-- CHANGE EMAIL ADDRESS -->
+
+            <a href="mailto:friend@example.com">
+                friend@example.com
+            </a>
+
+        </div>
+
+        <!-- INSTAGRAM -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                &#9825;
+            </div>
+
+            <h3>Follow on Instagram</h3>
+
+            <p>
+                Stay connected and discover more
+                little moments from her life.
+            </p>
+
+            <!-- CHANGE INSTAGRAM USERNAME AND LINK -->
+
+            <a href="https://www.instagram.com/USERNAME/"
+               target="_blank"
+               rel="noopener noreferrer">
+                @USERNAME
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WALL OF WISHES -->
+
+<section class="wishes-section" id="wallOfWishes">
+
+    <div class="section-heading">
+
+        <div class="small-title">
+            02 · WORDS FROM THE HEART
+        </div>
+
+        <h2>Wall of Wishes &#9825;</h2>
+
+        <p>
+            A little space filled with kindness,
+            encouragement, and meaningful words.
+        </p>
+
+    </div>
+
+    <!-- WISH FORM -->
+
+    <div class="wish-form">
+
+        <h2>Write Her a Wish</h2>
+
+        <p>
+            Have something lovely to say?
+            Leave a wish, a special memory,
+            or a few words of encouragement.
+        </p>
+
+        <form id="wishForm">
+
+            <div class="form-group">
+
+                <label for="visitorName">
+                    Your Name
+                </label>
+
+                <input type="text"
+                       id="visitorName"
+                       placeholder="Enter your name"
+                       maxlength="60"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="visitorWish">
+                    Your Wish
+                </label>
+
+                <textarea id="visitorWish"
+                          placeholder="Write something lovely for her..."
+                          maxlength="500"
+                          required></textarea>
+
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Post My Wish &#9825;
+            </button>
+
+            <p class="form-note">
+                Your wish will appear on the wall below.
+                Wishes are saved in this browser only.
+            </p>
+
+        </form>
+
+    </div>
+
+    <!-- DISPLAY WISHES -->
+
+    <div class="wishes-wall">
+
+        <div class="small-title" style="text-align:center;">
+            LITTLE WORDS, BIG MEANING
+        </div>
+
+        <h2>Wishes Left With Love</h2>
+
+        <p>
+            A collection of thoughtful messages
+            and beautiful wishes.
+        </p>
+
+        <div class="wishes-grid" id="wishesGrid"></div>
+
+        <p class="empty-message" id="emptyMessage">
+            No wishes yet. Be the first to leave her a little note! &#9825;
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CLOSING -->
+
+<section class="closing">
+
+    <div class="small-title">
+        03 · MADE WITH LOVE
+    </div>
+
+    <h2>A Story Worth Sharing.</h2>
+
+    <p>
+        This website was thoughtfully created
+        to introduce and celebrate her journey,
+        achievements, interests, and memorable experiences.
+    </p>
+
+    <p>
+        Some stories are meant to be shared,
+        and some connections are meant to last.
+    </p>
+
+    <div class="creator">
+        Created with love by Racheal &#9825;
+    </div>
+
+</section>
+
+<!-- THANK YOU POP-UP -->
+
+<div class="popup" id="thankYouPopup"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="popupTitle">
+
+    <div class="popup-box">
+
+        <div class="popup-heart">
+            &#9825;
+        </div>
+
+        <h2 id="popupTitle">Your Wish Has Been Added!</h2>
+
+        <p>
+            Thank you for sharing your kind words.
+            Your wish has been added to
+            the Wall of Wishes in this browser.
+        </p>
+
+        <button class="popup-btn" onclick="closePopup()">
+            View My Wish
+        </button>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">Her Story.</div>
+
+    <p>
+        Made with love, for a story worth telling. &#9825;
+    </p>
+
+    <p>
+        &copy; <span id="year"></span>
+        Her Story. All Rights Reserved.
+    </p>
+
+</footer>
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn"
+        onclick="topFunction()"
+        title="Back to top">
+    &#8593;
+</button>
+
+<script>
+
+/* BACK TO PREVIOUS PAGE */
+
+function goBack() {
+
+    if (document.referrer) {
+
+        try {
+
+            let previousPage = new URL(document.referrer);
+
+            if (previousPage.origin === window.location.origin &&
+                previousPage.pathname !== window.location.pathname) {
+
+                window.history.back();
+                return;
+
+            }
+
+        } catch (error) {
+            // Use Home as the fallback.
+        }
+
+    }
+
+    window.location.href = "home.html";
+
+}
+
+/* LOAD SAVED WISHES */
+
+const storageKey = "herStoryWishes";
+
+let wishes = [];
+
+try {
+
+    wishes = JSON.parse(
+        localStorage.getItem(storageKey)
+    ) || [];
+
+    if (!Array.isArray(wishes)) {
+        wishes = [];
+    }
+
+} catch (error) {
+
+    wishes = [];
+
+}
+
+/* DISPLAY WISHES */
+
+function displayWishes() {
+
+    let grid = document.getElementById("wishesGrid");
+
+    let empty = document.getElementById("emptyMessage");
+
+    grid.innerHTML = "";
+
+    if (wishes.length === 0) {
+
+        empty.style.display = "block";
+        return;
+
+    }
+
+    empty.style.display = "none";
+
+    wishes.forEach(function(wish) {
+
+        let card = document.createElement("div");
+        card.className = "wish-card";
+
+        let heart = document.createElement("div");
+        heart.className = "wish-heart";
+        heart.textContent = "♡";
+
+        let message = document.createElement("p");
+        message.className = "wish-message";
+        message.textContent = wish.message;
+
+        let author = document.createElement("p");
+        author.className = "wish-author";
+        author.textContent = "— " + wish.name;
+
+        card.appendChild(heart);
+        card.appendChild(message);
+        card.appendChild(author);
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+/* SUBMIT A WISH */
+
+document.getElementById("wishForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("visitorName")
+        .value.trim();
+
+    let message = document.getElementById("visitorWish")
+        .value.trim();
+
+    if (name === "" || message === "") {
+
+        alert("Please enter your name and wish first! ♡");
+        return;
+
+    }
+
+    let newWish = {
+        name: name,
+        message: message
+    };
+
+    wishes.unshift(newWish);
+
+    try {
+
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(wishes)
+        );
+
+    } catch (error) {
+
+        alert("The wish was added, but your browser could not save it.");
+
+    }
+
+    displayWishes();
+
+    document.getElementById("wishForm").reset();
+
+    document.getElementById("thankYouPopup")
+        .style.display = "flex";
+
+});
+
+/* CLOSE POP-UP */
+
+function closePopup() {
+
+    document.getElementById("thankYouPopup")
+        .style.display = "none";
+
+    document.querySelector(".wishes-wall")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+/* CLICK OUTSIDE TO CLOSE */
+
+window.addEventListener("click", function(event) {
+
+    let popup = document.getElementById("thankYouPopup");
+
+    if (event.target === popup) {
+        closePopup();
+    }
+
+});
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        document.getElementById("thankYouPopup")
+            .style.display = "none";
+
+    }
+
+});
+
+/* FOOTER YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+/* BACK TO TOP */
+
+let topButton = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function() {
+
+    if (document.documentElement.scrollTop > 200 ||
+        document.body.scrollTop > 200) {
+
+        topButton.style.display = "block";
+
+    } else {
+
+        topButton.style.display = "none";
+
+    }
+
+});
+
+function topFunction() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+/* SHOW SAVED WISHES */
+
+displayWishes();
+
+</script>
+
+</body>
+</html>
+

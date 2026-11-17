@@ -1,0 +1,1116 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Home  </title>
+<link rel="icon" type="image/png" href="cow.png">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* GENERAL */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #543C46;
+  background-color: white;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+
+.small-title {
+  color: #A96F80;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+}
+
+.section-title {
+  font-size: 36px;
+  margin: 15px 0;
+}
+
+.section-description {
+  color: #765D67;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* NAVIGATION */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: white;
+  border-bottom: 1px solid #F0E2E7;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: #A96F80;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #543C46;
+  font-size: 13px;
+  font-weight: bold;
+  padding-bottom: 7px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #A96F80;
+  border-bottom: 2px solid #A96F80;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  background-color: #A96F80;
+  color: white;
+  border: 1px solid #A96F80;
+  border-radius: 5px;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #875467;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #A96F80;
+}
+
+.btn-outline:hover {
+  background-color: #F1E1E6;
+  color: #875467;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 65px;
+  padding: 85px 10%;
+  background-color: #FBF4F6;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.15;
+  margin: 20px 0;
+}
+
+.hero h2 {
+  font-size: 24px;
+  color: #A96F80;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.hero p {
+  color: #765D67;
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 480px;
+}
+
+.hero-line {
+  width: 50px;
+  height: 2px;
+  background-color: #DAB7C1;
+  margin: 22px 0;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* SLIDESHOW */
+.slideshow {
+  flex: 1;
+  max-width: 380px;
+  min-width: 0;
+}
+
+.slide-frame {
+  position: relative;
+  padding: 9px;
+  background-color: white;
+  border: 1px solid #E8C9D1;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(169,111,128,0.10);
+}
+
+.mySlides {
+  display: none;
+  animation: fade 0.7s;
+}
+
+.mySlides img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@keyframes fade {
+  from {opacity: 0.4;}
+  to {opacity: 1;}
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px;
+  background-color: rgba(84,60,70,0.5);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.prev {
+  left: 18px;
+}
+
+.next {
+  right: 18px;
+}
+
+.prev:hover, .next:hover {
+  background-color: #A96F80;
+}
+
+.slide-info {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.slide-caption {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.slide-counter {
+  font-size: 12px;
+  color: #A96F80;
+  letter-spacing: 2px;
+}
+
+.dots {
+  margin-top: 12px;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: #E8C9D1;
+  cursor: pointer;
+}
+
+.dot.active, .dot:hover {
+  background-color: #A96F80;
+}
+
+/* STATEMENT STRIP */
+.statement {
+  background-color: #A96F80;
+  color: white;
+  padding: 20px 10%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 2;
+}
+
+/* THREE WORDS */
+.three-words {
+  padding: 85px 10%;
+  text-align: center;
+  background-color: white;
+}
+
+.words-container {
+  display: flex;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.word-card {
+  flex: 1;
+  background-color: #FBF4F6;
+  padding: 35px 20px;
+  border: 1px solid #F0E2E7;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.word-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(169,111,128,0.12);
+}
+
+.word-number {
+  color: #C89BA8;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.word-card h3 {
+  font-size: 25px;
+  margin: 20px 0 10px;
+}
+
+.word-card p {
+  color: #765D67;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* CREATOR NOTE */
+.creator-note {
+  background-color: #FBF4F6;
+  padding: 85px 10%;
+}
+
+.note-container {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.note-photo {
+  flex: 1;
+  min-width: 0;
+}
+
+.note-photo img {
+  display: block;
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 8px solid white;
+  box-shadow: 0 12px 30px rgba(169,111,128,0.12);
+}
+
+.note-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.note-text h2 {
+  font-size: 36px;
+  margin: 18px 0;
+}
+
+.note-text p {
+  color: #765D67;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+.note-signature {
+  margin-top: 20px;
+  color: #A96F80;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* POP-UP LETTER */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(48,40,32,0.5);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #FFF9FA;
+  width: 85%;
+  max-width: 550px;
+  margin: 8% auto;
+  padding: 45px;
+  border: 1px solid #E8C9D1;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  animation: letterFade 0.4s;
+}
+
+.modal-content h2 {
+  font-size: 30px;
+}
+
+.modal-content p {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #765D67;
+}
+
+.letter-ending {
+  color: #A96F80 !important;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  color: #A96F80;
+  cursor: pointer;
+}
+
+@keyframes letterFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EXPLORE */
+.explore {
+  padding: 85px 10%;
+  text-align: center;
+  background-color: white;
+}
+
+.explore-cards {
+  display: flex;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.explore-card {
+  flex: 1;
+  padding: 38px 25px;
+  border: 1px solid #F0E2E7;
+  border-radius: 10px;
+  background-color: #FFF9FA;
+  transition: 0.3s;
+}
+
+.explore-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(169,111,128,0.13);
+}
+
+.explore-number {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  color: #C89BA8;
+}
+
+.explore-card h3 {
+  font-size: 24px;
+}
+
+.explore-card p {
+  color: #765D67;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.explore-card a {
+  color: #A96F80;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.explore-card a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  padding: 50px 20px;
+  background-color: #FBF4F6;
+  text-align: center;
+  color: #765D67;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-logo {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  color: #A96F80;
+}
+
+/* BACK TO TOP */
+#topBtn {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 60;
+  width: 45px;
+  height: 45px;
+  background-color: #A96F80;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 850px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hero,
+  .note-container {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: 65px 7%;
+    gap: 40px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .slideshow {
+    width: 100%;
+  }
+
+  .words-container,
+  .explore-cards {
+    flex-direction: column;
+  }
+
+  .note-container {
+    gap: 30px;
+  }
+
+  .note-photo {
+    width: 100%;
+  }
+
+  .modal-content {
+    margin: 15% auto;
+    padding: 35px 25px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+
+  <div class="logo">.</div>
+
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="background.html">Background</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="gallery.html">The Gallery</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-text">
+
+    <div class="small-title">
+      WELCOME TO HER WORLD
+    </div>
+
+    <h1>Meet Felexcia Florina Anak Greection.</h1>
+
+    <h2>
+      More than a name.<br>
+      A story to discover.
+    </h2>
+
+    <div class="hero-line"></div>
+
+    <p>
+      A little glimpse into her world, where
+      memories, ambitions, and meaningful moments
+      come together. Discover the person behind
+      the smile and the dreams that guide her.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="background.html" class="btn">
+        Pieces of Her World &rarr;
+      </a>
+
+      <button class="btn btn-outline"
+              onclick="welcomeMessage()">
+        A Little Hello &#9825;
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- SLIDESHOW -->
+  <div class="slideshow">
+
+    <div class="slide-frame">
+
+      <div class="mySlides">
+        <img src="tenten2.jpg" alt="Portrait of my friend">
+      </div>
+
+      <div class="mySlides">
+        <img src="tenten.jpg" alt="A memorable moment">
+      </div>
+
+      <div class="mySlides">
+        <img src="tenten3.jpg" alt="Another memorable moment">
+      </div>
+
+      <button class="prev" onclick="plusSlides(-1)"
+              aria-label="Previous photo">
+        &#10094;
+      </button>
+
+      <button class="next" onclick="plusSlides(1)"
+              aria-label="Next photo">
+        &#10095;
+      </button>
+
+    </div>
+
+    <div class="slide-info">
+
+      <div class="slide-caption" id="slideCaption"></div>
+
+      <div class="slide-counter" id="slideCounter"></div>
+
+      <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATEMENT STRIP -->
+<div class="statement">
+  A LITTLE ABOUT HER &#9825;
+  THE MOMENTS THAT MATTER &#9825;
+  A STORY STILL UNFOLDING
+</div>
+
+<!-- HER IN THREE WORDS -->
+<section class="three-words">
+
+  <div class="reveal">
+
+    <div class="small-title">
+      BEYOND THE FIRST IMPRESSION
+    </div>
+
+    <h2 class="section-title">Her in Three Words</h2>
+
+    <p class="section-description">
+      A few simple words that reflect the
+      wonderful person she is.
+    </p>
+
+  </div>
+
+  <div class="words-container reveal">
+
+    <div class="word-card">
+      <div class="word-number">01</div>
+      <h3>Kindhearted</h3>
+      <p>
+        Someone who makes others feel
+        appreciated through little acts of kindness.
+      </p>
+    </div>
+
+    <div class="word-card">
+      <div class="word-number">02</div>
+      <h3>Ambitious</h3>
+      <p>
+        Always growing, learning, and working
+        towards the things that matter to her.
+      </p>
+    </div>
+
+    <div class="word-card">
+      <div class="word-number">03</div>
+      <h3>Creative</h3>
+      <p>
+        Bringing her own perspective and
+        personality into everything she does.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- NOTE FROM CREATOR -->
+<section class="creator-note">
+
+  <div class="note-container reveal">
+
+    <div class="note-photo">
+      <img src=".jpg"
+           alt="A photograph of us together">
+    </div>
+
+    <div class="note-text">
+
+      <div class="small-title">
+        A LITTLE SOMETHING PERSONAL
+      </div>
+
+      <h2>From Me to Her &#9825;</h2>
+
+      <p>
+        Some people make ordinary moments
+        unforgettable. This little space is my
+        way of celebrating someone who has made
+        a meaningful difference in my life.
+      </p>
+
+      <button class="btn" onclick="openNote()">
+        Read My Note &#9825;
+      </button>
+
+      <div class="note-signature">
+        MADE WITH LOVE
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LETTER POP-UP -->
+<div id="notePopup" class="modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="letterTitle">
+
+  <div class="modal-content">
+
+    <button class="close" onclick="closeNote()"
+            aria-label="Close letter">
+      &times;
+    </button>
+
+    <div class="small-title">A LETTER TO YOU</div>
+
+    <h2 id="letterTitle">Dear Friend,</h2>
+
+    <p>
+      Some people come into our lives and make
+      even the simplest moments worth remembering.
+      You're one of those people.
+    </p>
+
+    <p>
+      This website is a little way of celebrating
+      who you are, the memories you've created,
+      and the dreams you're working towards.
+      It's a reminder that your story matters,
+      and there's so much more waiting to be written.
+    </p>
+
+    <p class="letter-ending">
+      With love,<br>
+      Your Friend &#9825;
+    </p>
+
+  </div>
+
+</div>
+
+<!-- EXPLORE HER WORLD -->
+<section class="explore">
+
+  <div class="reveal">
+
+    <div class="small-title">
+      THE NEXT CHAPTER
+    </div>
+
+    <h2 class="section-title">Explore Her World</h2>
+
+    <p class="section-description">
+      Every chapter tells a different story.
+      Discover the experiences, achievements,
+      and memories that define her journey.
+    </p>
+
+  </div>
+
+  <div class="explore-cards reveal">
+
+    <div class="explore-card">
+
+      <div class="explore-number">01</div>
+
+      <h3>Background</h3>
+
+      <p>
+        Get to know the person behind the name
+        and the experiences that shaped her.
+      </p>
+
+      <a href="background.html">
+        Discover More &rarr;
+      </a>
+
+    </div>
+
+    <div class="explore-card">
+
+      <div class="explore-number">02</div>
+
+      <h3>Achievements</h3>
+
+      <p>
+        Discover meaningful milestones
+        and accomplishments worth celebrating.
+      </p>
+
+      <a href="achievements.html">
+        Explore Achievements &rarr;
+      </a>
+
+    </div>
+
+    <div class="explore-card">
+
+      <div class="explore-number">03</div>
+
+      <h3>The Gallery</h3>
+
+      <p>
+        Explore a visual collection of
+        unforgettable moments and memories.
+      </p>
+
+      <a href="gallery.html">
+        View Gallery &rarr;
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-logo">Her Story.</div>
+
+  <p>Made with love, for a story worth telling. &#9825;</p>
+
+  <p id="currentDate"></p>
+
+  <p>&copy; <span id="year"></span> Her Story. All Rights Reserved.</p>
+
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="topBtn" onclick="topFunction()"
+        title="Go to top">
+  &#8593;
+</button>
+
+<script>
+
+// WELCOME MESSAGE
+function welcomeMessage() {
+  alert("Hello! Welcome to Her Story. Thank you for visiting this little space dedicated to someone special!");
+}
+
+// CURRENT DATE AND YEAR
+document.getElementById("currentDate").innerHTML =
+  new Date().toDateString();
+
+document.getElementById("year").innerHTML =
+  new Date().getFullYear();
+
+// SLIDESHOW
+let slideIndex = 1;
+
+let captions = [
+  "A Little Introduction",
+  "Moments Worth Keeping",
+  "The Story Continues"
+];
+
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].classList.add("active");
+
+  document.getElementById("slideCaption").innerHTML =
+    captions[slideIndex - 1];
+
+  document.getElementById("slideCounter").innerHTML =
+    String(slideIndex).padStart(2, "0") +
+    " / " +
+    String(slides.length).padStart(2, "0");
+}
+
+// OPEN LETTER
+function openNote() {
+  document.getElementById("notePopup").style.display = "block";
+  document.body.style.overflow = "hidden";
+  document.querySelector(".close").focus();
+}
+
+// CLOSE LETTER
+function closeNote() {
+  document.getElementById("notePopup").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+// CLOSE BY CLICKING OUTSIDE
+window.addEventListener("click", function(event) {
+
+  let modal = document.getElementById("notePopup");
+
+  if (event.target == modal) {
+    closeNote();
+  }
+
+});
+
+// CLOSE USING ESCAPE
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    closeNote();
+  }
+
+});
+
+// BACK TO TOP
+let topButton = document.getElementById("topBtn");
+
+window.addEventListener("scroll", function() {
+
+  if (document.documentElement.scrollTop > 200 ||
+      document.body.scrollTop > 200) {
+
+    topButton.style.display = "block";
+
+  } else {
+
+    topButton.style.display = "none";
+
+  }
+
+});
+
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+// SCROLL REVEAL
+let revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+  let observer = new IntersectionObserver(function(entries) {
+
+    entries.forEach(function(entry) {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+
+    });
+
+  }, {
+    threshold: 0.1
+  });
+
+  revealElements.forEach(function(element) {
+    observer.observe(element);
+  });
+
+} else {
+
+  revealElements.forEach(function(element) {
+    element.classList.add("visible");
+  });
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+
